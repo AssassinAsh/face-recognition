@@ -1,6 +1,5 @@
-# train.py
 import cv2, sys, numpy, os
-size = 4
+size = 1
 fn_haar = 'haarcascade_frontalface_default.xml'
 fn_dir = 'att_faces'
 try:
@@ -73,15 +72,12 @@ while count < count_max:
 
             # To create diversity, only save every fith detected image
             if(pause == 0):
-
                 print("Saving training sample "+str(count+1)+"/"+str(count_max))
 
                 # Save image file
                 cv2.imwrite('%s/%s.png' % (path, pin), face_resize)
-
                 pin += 1
                 count += 1
-
                 pause = 1
 
     if(pause > 0):
